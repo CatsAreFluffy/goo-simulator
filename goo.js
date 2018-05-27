@@ -4,7 +4,7 @@ let matter = {
 };
 let nanites = 0;
 let scouts = 0;
-const getMatter = () => {
+let getMatter = () => {
 	if(matter.available > 0) {
 		matter.available--;
 		matter.usable++;
@@ -12,7 +12,7 @@ const getMatter = () => {
 	updateMatter();
 };
 
-const buyNanite = () => {
+let buyNanite = () => {
 	if(matter.usable >= 10) {
 		matter.usable-=10;
 		nanites++;
@@ -20,7 +20,7 @@ const buyNanite = () => {
 	updateMatter();
 	updateNanomachines();
 };
-const sellNanite = () => {
+let sellNanite = () => {
 	if(nanites > 0) {
 		matter.usable += 10;
 		nanites--;
@@ -29,7 +29,7 @@ const sellNanite = () => {
 	updateNanomachines();
 };
 
-const buyScout = () => {
+let buyScout = () => {
 	if(nanites >= 20) {
 		nanites-=20;
 		scouts++;
@@ -37,7 +37,7 @@ const buyScout = () => {
 	updateMatter();
 	updateNanomachines();
 };
-const sellNanite = () => {
+let sellNanite = () => {
 	if(nanites > 0) {
 		matter.usable += 10;
 		scouts++;
@@ -45,11 +45,11 @@ const sellNanite = () => {
 	updateNanomachines();
 };
 
-const updateMatter = () => {
+let updateMatter = () => {
 	document.getElementById('usable matter').innerHTML = "Usable matter:<br/>" + matter.usable;
 	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + matter.available;
 };
-const updateNanomachines = () => {
+let updateNanomachines = () => {
 	if(nanites === 1) {
 		document.getElementById('nanites').innerHTML = nanites + " nanite";
 	} else{
@@ -62,7 +62,7 @@ const updateNanomachines = () => {
 		document.getElementById('scouts').innerHTML = scouts + " scouts";
 	}
 };
-const makeStuff = () => {
+let makeStuff = () => {
 	if(matter.available > nanites) {
 		matter.available -= nanites;
 		matter.usable += nanites;
