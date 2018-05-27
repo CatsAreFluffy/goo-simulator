@@ -91,8 +91,8 @@ const makeStuff = () => {
 		matter.usable += matter.available;
 		matter.available = 0;
 	}
-	matter.available+=scouts*5;
-	if(matter.usable > nanofactories) {
+	matter.available += scouts*5;
+	if(matter.usable > nanofactories * 10) {
 		matter.usable -= nanofactories * 10;
 		nanites += nanofactories;
 	} else{
