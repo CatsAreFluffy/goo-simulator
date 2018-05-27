@@ -96,7 +96,7 @@ const makeStuff = () => {
 		matter.usable -= nanofactories * 10;
 		nanites += nanofactories;
 	} else{
-		nanites += Math.floor(nanofactories/matter.usable);
+		nanites += Math.floor(matter.usable/(nanofactories * 10));
 		matter.usable = matter.usable % (nanofactories * 10);
 	}
 };
