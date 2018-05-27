@@ -71,16 +71,19 @@ const updateNanomachines = () => {
 		document.getElementById('nanites').innerHTML = nanites + " nanites";
 	}
 	
-	if(scouts === 1) {
-		document.getElementById('scouts').innerHTML = scouts + " scout";
-	} else{
-		document.getElementById('scouts').innerHTML = scouts + " scouts";
+	if(scoutsUnlock === false) {
+		if(scouts === 1) {
+			document.getElementById('scouts').innerHTML = scouts + " scout";
+		} else{
+			document.getElementById('scouts').innerHTML = scouts + " scouts";
+		}
 	}
-	
-	if(nanofactories === 1) {
-		document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactory";
-	} else{
-		document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactories";
+	if(nanofactoryUnlock === false) {
+		if(nanofactories === 1) {
+			document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactory";
+		} else{
+			document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactories";
+		}
 	}
 };
 const makeStuff = () => {
