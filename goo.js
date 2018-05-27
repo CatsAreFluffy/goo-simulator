@@ -78,9 +78,9 @@ const updateNanomachines = () => {
 	}
 	
 	if(nanofactories === 1) {
-		document.getElementById('scouts').innerHTML = nanofactories + " nanofactory";
+		document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactory";
 	} else{
-		document.getElementById('scouts').innerHTML = nanofactories + " nanofactories";
+		document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactories";
 	}
 };
 const makeStuff = () => {
@@ -130,10 +130,10 @@ const unlocks = () => {
 		let nanofactoryBuy = document.createElement("button");
 		let nanofactorySell = document.createElement("button");
 		let nanofactoryAmount = document.createElement("p");
-		buy.onclick = buyNanofactory;
-		buy.innerHTML = "Create nanofactory (Cost: 50 nanites)";
-		sell.onclick = sellNanofactory;
-		sell.innerHTML = "Destroy nanofactory";
+		nanofactoryBuy.onclick = buyNanofactory;
+		nanofactoryBuy.innerHTML = "Create nanofactory (Cost: 50 nanites)";
+		nanofactorySell.onclick = sellNanofactory;
+		nanofactorySell.innerHTML = "Destroy nanofactory";
 		
 		nanofactoryAmount.innerHTML = "0 nanofactories";
 		nanofactoryAmount.id = "nanofactories";
