@@ -5,12 +5,13 @@
 </head>
 <body>
 	<script type:'text/javascript' src='goo.js'></script>
-	<p id = 'matter'></p>
-	<button onclick='getMatter(1)'>Convert matter</button>
+	<p id = 'usable matter'></p>
+	<p id = 'available matter'></p>
+	<button onclick='getMatter()'>Convert matter</button>
+	<button onclick='buyNanite()'>Create nanite</button>
 	<div id = 'a'></div>
 	<script>
-		document.getElementById('usable matter').innerHTML = matter.usable;
-		document.getElementById('available matter').innerHTML = matter.available;
+		updateMatter();
 		let looper = setInterval(ticker, 1000);
 	</script>
 </body>
