@@ -90,7 +90,7 @@ const unlocks = () => {
 		scoutDiv.appendChild(buy);
 		scoutDiv.appendChild(sell);
 		scoutDiv.appendChild(amount);
-		document.getElementById('nanomachines').appendChild(scoutsDiv);
+		document.getElementById('nanomachines').appendChild(scoutDiv);
 		scoutsUnlock = false;
 	}
 };
