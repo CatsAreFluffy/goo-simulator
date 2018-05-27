@@ -3,7 +3,8 @@ let matter = {
 	usable:0
 };
 let nanites = 0;
-let getMatter = () => {
+let scouts = 0;
+const getMatter = () => {
 	if(matter.available > 0) {
 		matter.available--;
 		matter.usable++;
@@ -11,7 +12,7 @@ let getMatter = () => {
 	updateMatter();
 };
 
-let buyNanite = () => {
+const buyNanite = () => {
 	if(matter.usable >= 10) {
 		matter.usable-=10;
 		nanites++;
@@ -19,7 +20,7 @@ let buyNanite = () => {
 	updateMatter();
 	updateNanomachines();
 };
-let sellNanite = () => {
+const sellNanite = () => {
 	if(nanites > 0) {
 		matter.usable += 10;
 		nanites--;
@@ -27,18 +28,41 @@ let sellNanite = () => {
 	updateMatter();
 	updateNanomachines();
 };
-let updateMatter = () => {
+
+const buyScout = () => {
+	if(nanites >= 20) {
+		nanites-=20;
+		scouts++;
+	}
+	updateMatter();
+	updateNanomachines();
+};
+const sellNanite = () => {
+	if(nanites > 0) {
+		matter.usable += 10;
+		scouts++;
+	}
+	updateNanomachines();
+};
+
+const updateMatter = () => {
 	document.getElementById('usable matter').innerHTML = "Usable matter:<br/>" + matter.usable;
 	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + matter.available;
 };
-let updateNanomachines = () => {
+const updateNanomachines = () => {
 	if(nanites === 1) {
 		document.getElementById('nanites').innerHTML = nanites + " nanite";
 	} else{
 		document.getElementById('nanites').innerHTML = nanites + " nanites";
 	}
+	
+	if(scouts === 1) {
+		document.getElementById('scouts').innerHTML = scouts + " scout";
+	} else{
+		document.getElementById('scouts').innerHTML = scouts + " scouts";
+	}
 };
-let makeStuff = () => {
+const makeStuff = () => {
 	if(matter.available > nanites) {
 		matter.available -= nanites;
 		matter.usable += nanites;
@@ -46,11 +70,14 @@ let makeStuff = () => {
 		matter.usable += matter.available;
 		matter.available = 0;
 	}
+	matter.available+=scouts*5;
 };
+
+
 let scoutsUnlock = true;
-let unlocks = () => {
+const unlocks = () => {
 	if(nanites > 100 && scoutsUnlock === true) {
-		let scouts = document.createElement("div");
+		let scoutDiv = document.createElement("div");
 		let buy = document.createElement("button");
 		let sell = document.createElement("button");
 		let amount = document.createElement("p");
