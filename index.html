@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel='stylesheet' href='style.css'/>
+	<link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-	<script type:'text/javascript' src='goo.js'></script>
-	<p id = 'usable matter'></p>
-	<p id = 'available matter'></p>
-	<button onclick='getMatter()'>Convert matter</button>
-	<button onclick='buyNanite()'>Create nanite</button>
-	<div id = 'a'></div>
+	<script type:"text/javascript" src="goo.js"></script>
+	<p id="usable matter"></p>
+	<p id="available matter"></p>
+	<button onclick="getMatter()">Convert matter</button>
+	<div id="nanomachines">
+		<button onclick="buyNanite()">Create nanite (Cost:10 usable matter)</button>
+		<button onclick="sellNanite()">Destroy nanite</button>
+		<p id="nanites">0 nanites<p>
+	</div>
 	<script>
 		updateMatter();
 		let looper = setInterval(ticker, 1000);
