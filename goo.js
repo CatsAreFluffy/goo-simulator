@@ -130,16 +130,16 @@ const unlocks = () => {
 		let buy = document.createElement("button");
 		let sell = document.createElement("button");
 		let amount = document.createElement("p");
-		buy.onclick = buyScout;
+		buy.onclick = buyNanofactory;
 		buy.innerHTML = "Create nanofactory (Cost: 50 nanites)";
-		sell.onclick = sellScout;
+		sell.onclick = sellNanofactory;
 		sell.innerHTML = "Destroy nanofactory";
 		
-		amount.innerHTML = "0 scouts";
+		amount.innerHTML = "0 nanofactories";
 		amount.id = "nanofactories";
-		scoutDiv.appendChild(buy);
-		scoutDiv.appendChild(sell);
-		scoutDiv.appendChild(amount);
+		nanofactoryDiv.appendChild(buy);
+		nanofactoryDiv.appendChild(sell);
+		nanofactoryDiv.appendChild(amount);
 		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
 		nanofactoryUnlock = false;
 	}
