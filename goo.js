@@ -34,13 +34,12 @@ let buyScout = () => {
 		nanites-=20;
 		scouts++;
 	}
-	updateMatter();
 	updateNanomachines();
 };
-let sellNanite = () => {
-	if(nanites > 0) {
-		matter.usable += 10;
-		scouts++;
+let sellScout = () => {
+	if(scouts > 0) {
+		nanites += 20;
+		scouts--;
 	}
 	updateNanomachines();
 };
