@@ -4,6 +4,7 @@ let matter = {
 };
 let nanites = 0;
 let scouts = 0;
+let nanofactories = 0;
 const getMatter = () => {
 	if(matter.available > 0) {
 		matter.available--;
@@ -44,6 +45,21 @@ const sellScout = () => {
 	updateNanomachines();
 };
 
+const buyNanofactory = () => {
+	if(nanites >= 50) {
+		nanites-=50;
+		nanofactories++;
+	}
+	updateNanomachines();
+};
+const sellNanofactory = () => {
+	if(nanofactories > 0) {
+		nanites += 50;
+		nanofactories--;
+	}
+	updateNanomachines();
+};
+
 const updateMatter = () => {
 	document.getElementById('usable matter').innerHTML = "Usable matter:<br/>" + matter.usable;
 	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + matter.available;
@@ -55,10 +71,16 @@ const updateNanomachines = () => {
 		document.getElementById('nanites').innerHTML = nanites + " nanites";
 	}
 	
-	if(scouts === 1 && scoutsUnlock === false) {
+	if(scouts === 1) {
 		document.getElementById('scouts').innerHTML = scouts + " scout";
 	} else{
 		document.getElementById('scouts').innerHTML = scouts + " scouts";
+	}
+	
+	if(nanofactories === 1) {
+		document.getElementById('scouts').innerHTML = nanofactories + " nanofactory";
+	} else{
+		document.getElementById('scouts').innerHTML = nanofactories + " nanofactories";
 	}
 };
 const makeStuff = () => {
@@ -70,10 +92,18 @@ const makeStuff = () => {
 		matter.available = 0;
 	}
 	matter.available+=scouts*5;
+	if(matter.usable > nanofactories) {
+		matter.usable -= nanofactories * 10;
+		nanites += nanofactories;
+	} else{
+		nanites += Math.floor(nanofactories/matter.usable);
+		matter.usable = matter.usable % (nanofactories * 10);
+	}
 };
 
 
 let scoutsUnlock = true;
+let nanofactoryUnlock = true;
 const unlocks = () => {
 	if(nanites > 100 && scoutsUnlock === true) {
 		let scoutDiv = document.createElement("div");
@@ -93,6 +123,25 @@ const unlocks = () => {
 		document.getElementById('nanomachines').appendChild(scoutDiv);
 		scoutsUnlock = false;
 	}
+	if(nanites > 150 && nanofactoryUnlock === true) {
+		let nanofactoryDiv = document.createElement("div");
+		let buy = document.createElement("button");
+		let sell = document.createElement("button");
+		let amount = document.createElement("p");
+		buy.onclick = buyScout;
+		buy.innerHTML = "Create nanofactory (Cost: 50 nanites)";
+		sell.onclick = sellScout;
+		sell.innerHTML = "Destroy nanofactory";
+		
+		amount.innerHTML = "0 scouts";
+		amount.id = "nanofactories";
+		scoutDiv.appendChild(buy);
+		scoutDiv.appendChild(sell);
+		scoutDiv.appendChild(amount);
+		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
+		nanofactoryUnlock = false;
+	}
+	
 };
 const ticker = () => {
 	makeStuff();
