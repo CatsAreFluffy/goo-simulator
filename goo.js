@@ -12,7 +12,7 @@ let getMatter = () => {
 };
 
 let buyNanite = () => {
-	if(matter.usable <= 10) {
+	if(matter.usable >= 10) {
 		matter.usable-=10;
 		nanites++
 	}
