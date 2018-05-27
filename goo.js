@@ -47,20 +47,25 @@ let makeStuff = () => {
 		matter.available = 0;
 	}
 };
+let scoutsUnlock = true;
 let unlocks = () => {
-	if(nanites > 100) {
+	if(nanites > 100 && scoutsUnlock === true) {
 		let scouts = document.createElement("div");
 		let buy = document.createElement("button");
 		let sell = document.createElement("button");
 		let amount = document.createElement("p");
 		buy.onclick = "buyScout()";
+		buy.innerHTML = "Create scout (Cost: 20 nanites)";
 		sell.onclick = "sellScout()";
+		sell.innerHTML = "Destroy scout";
+		
 		amount.innerHTML = "0 scouts";
 		amount.id = "scouts";
 		scouts.appendChild(buy);
 		scouts.appendChild(sell);
 		scouts.appendChild(amount);
 		document.getElementById('nanomachines').appendChild(scouts);
+		scoutsUnlock = false;
 	}
 };
 const ticker = () => {
