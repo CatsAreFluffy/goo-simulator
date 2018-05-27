@@ -4,7 +4,7 @@ let matter = {
 };
 let nanites = 0;
 let scouts = 0;
-let getMatter = () => {
+const getMatter = () => {
 	if(matter.available > 0) {
 		matter.available--;
 		matter.usable++;
@@ -12,7 +12,7 @@ let getMatter = () => {
 	updateMatter();
 };
 
-let buyNanite = () => {
+const buyNanite = () => {
 	if(matter.usable >= 10) {
 		matter.usable-=10;
 		nanites++;
@@ -20,7 +20,7 @@ let buyNanite = () => {
 	updateMatter();
 	updateNanomachines();
 };
-let sellNanite = () => {
+const sellNanite = () => {
 	if(nanites > 0) {
 		matter.usable += 10;
 		nanites--;
@@ -29,14 +29,14 @@ let sellNanite = () => {
 	updateNanomachines();
 };
 
-let buyScout = () => {
+const buyScout = () => {
 	if(nanites >= 20) {
 		nanites-=20;
 		scouts++;
 	}
 	updateNanomachines();
 };
-let sellScout = () => {
+const sellScout = () => {
 	if(scouts > 0) {
 		nanites += 20;
 		scouts--;
@@ -44,24 +44,24 @@ let sellScout = () => {
 	updateNanomachines();
 };
 
-let updateMatter = () => {
+const updateMatter = () => {
 	document.getElementById('usable matter').innerHTML = "Usable matter:<br/>" + matter.usable;
 	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + matter.available;
 };
-let updateNanomachines = () => {
+const updateNanomachines = () => {
 	if(nanites === 1) {
 		document.getElementById('nanites').innerHTML = nanites + " nanite";
 	} else{
 		document.getElementById('nanites').innerHTML = nanites + " nanites";
 	}
 	
-	if(scouts === 1) {
+	if(scouts === 1 && scoutsUnlock === false) {
 		document.getElementById('scouts').innerHTML = scouts + " scout";
 	} else{
 		document.getElementById('scouts').innerHTML = scouts + " scouts";
 	}
 };
-let makeStuff = () => {
+const makeStuff = () => {
 	if(matter.available > nanites) {
 		matter.available -= nanites;
 		matter.usable += nanites;
@@ -87,9 +87,9 @@ const unlocks = () => {
 		
 		amount.innerHTML = "0 scouts";
 		amount.id = "scouts";
-		scouts.appendChild(buy);
-		scouts.appendChild(sell);
-		scouts.appendChild(amount);
+		scoutDiv.appendChild(buy);
+		scoutDiv.appendChild(sell);
+		scoutDiv.appendChild(amount);
 		document.getElementById('nanomachines').appendChild(scouts);
 		scoutsUnlock = false;
 	}
