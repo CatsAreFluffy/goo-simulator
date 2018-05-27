@@ -24,7 +24,7 @@ let updateMatter = () => {
 	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + matter.available;
 };
 let updateNanomachines = () => {
-	document.getElementById('nanites').innerHTML = nanites + "nanites";
+	document.getElementById('nanites').innerHTML = nanites + " nanites";
 };
 let makeStuff = () => {
 	if(matter.available > nanites) {
