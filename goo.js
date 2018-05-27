@@ -101,6 +101,7 @@ const makeStuff = () => {
 		matter.usable = matter.usable % (nanofactories * 10);
 		console.log(matter.usable = matter.usable % (nanofactories * 10));
 	}
+	updateNanomachines();
 };
 
 
