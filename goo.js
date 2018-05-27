@@ -109,37 +109,37 @@ let nanofactoryUnlock = true;
 const unlocks = () => {
 	if(nanites > 100 && scoutsUnlock === true) {
 		let scoutDiv = document.createElement("div");
-		let buy = document.createElement("button");
-		let sell = document.createElement("button");
+		let scoutBuy = document.createElement("button");
+		let scoutSell = document.createElement("button");
 		let amount = document.createElement("p");
-		buy.onclick = buyScout;
-		buy.innerHTML = "Create scout (Cost: 20 nanites)";
-		sell.onclick = sellScout;
-		sell.innerHTML = "Destroy scout";
+		scoutBuy.onclick = buyScout;
+		scoutBuy.innerHTML = "Create scout (Cost: 20 nanites)";
+		scoutSell.onclick = sellScout;
+		scoutSell.innerHTML = "Destroy scout";
 		
 		amount.innerHTML = "0 scouts";
 		amount.id = "scouts";
-		scoutDiv.appendChild(buy);
-		scoutDiv.appendChild(sell);
+		scoutDiv.appendChild(scoutBuy);
+		scoutDiv.appendChild(scoutSell);
 		scoutDiv.appendChild(amount);
 		document.getElementById('nanomachines').appendChild(scoutDiv);
 		scoutsUnlock = false;
 	}
 	if(nanites > 150 && nanofactoryUnlock === true) {
 		let nanofactoryDiv = document.createElement("div");
-		let buy = document.createElement("button");
-		let sell = document.createElement("button");
-		let amount = document.createElement("p");
+		let nanofactoryBuy = document.createElement("button");
+		let nanofactorySell = document.createElement("button");
+		let nanofactoryAmount = document.createElement("p");
 		buy.onclick = buyNanofactory;
 		buy.innerHTML = "Create nanofactory (Cost: 50 nanites)";
 		sell.onclick = sellNanofactory;
 		sell.innerHTML = "Destroy nanofactory";
 		
-		amount.innerHTML = "0 nanofactories";
-		amount.id = "nanofactories";
-		nanofactoryDiv.appendChild(buy);
-		nanofactoryDiv.appendChild(sell);
-		nanofactoryDiv.appendChild(amount);
+		nanofactoryAmount.innerHTML = "0 nanofactories";
+		nanofactoryAmount.id = "nanofactories";
+		nanofactoryDiv.appendChild(nanofactoryBuy);
+		nanofactoryDiv.appendChild(nanofactorySell);
+		nanofactoryDiv.appendChild(nanofactoryAmount);
 		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
 		nanofactoryUnlock = false;
 	}
