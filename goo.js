@@ -1,5 +1,3 @@
-import { unlock, unlocks } from "/unlocks.js";
-
 let matter = {
 	available:10000,
 	usable:0
