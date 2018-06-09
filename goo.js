@@ -65,44 +65,43 @@ const updateMatter = () => {
 	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + matter.available;
 };
 const updateNanomachines = () => {
-	if(nanites === 1) {
-		document.getElementById('nanites').innerHTML = nanites + " nanite";
+	if(Math.floor(nanites) === 1) {
+		document.getElementById('nanites').innerHTML = Math.floor(nanites) + " nanite";
 	} else{
-		document.getElementById('nanites').innerHTML = nanites + " nanites";
+		document.getElementById('nanites').innerHTML = Math.floor(nanites) + " nanites";
 	}
 	
 	if(unlock.scouts === false) {
-		if(scouts === 1) {
-			document.getElementById('scouts').innerHTML = scouts + " scout";
+		if(Math.floor(scouts) === 1) {
+			document.getElementById('scouts').innerHTML = Math.floor(scouts) + " scout";
 		} else{
-			document.getElementById('scouts').innerHTML = scouts + " scouts";
+			document.getElementById('scouts').innerHTML = Math.floor(scouts) + " scouts";
 		}
 	}
 	if(unlock.nanofactory === false) {
-		if(nanofactories === 1) {
-			document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactory";
+		if(Math.floor(nanofactories) === 1) {
+			document.getElementById('nanofactories').innerHTML = Math.floor(nanofactories) + " nanofactory";
 		} else{
-			document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactories";
+			document.getElementById('nanofactories').innerHTML = Math.floor(nanofactories) + " nanofactories";
 		}
 	}
 };
 const makeStuff = () => {
-	if(matter.available > nanites) {
-		matter.available -= nanites;
-		matter.usable += nanites;
+	if(matter.available > nanites/100) {
+		matter.available -= nanites/100;
+		matter.usable += nanites/100;
 	} else{
 		matter.usable += matter.available;
 		matter.available = 0;
 	}
-	matter.available += scouts*5;
-	if(matter.usable >= nanofactories * 10) {
-		matter.usable -= nanofactories * 10;
+	matter.available += scouts/20;
+	if(matter.usable >= nanofactories/10) {
+		matter.usable -= nanofactories/10;
 		nanites += nanofactories;
 	} else{
-		nanites += Math.floor(matter.usable/(nanofactories * 10));
-		console.log(Math.floor(matter.usable/(nanofactories * 10)));
-		matter.usable = matter.usable % (nanofactories * 10);
-		console.log(matter.usable = matter.usable % (nanofactories * 10));
+		nanites += Math.floor(matter.usable/(nanofactories/10));
+		matter.usable = matter.usable % (nanofactories/10);
+		console.log(matter.usable % (nanofactories/10));
 	}
 	updateNanomachines();
 };
