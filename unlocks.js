@@ -48,7 +48,7 @@ const unlocks = () => {
 		let scoutfactorySell = document.createElement("button");
 		let scoutfactoryAmount = document.createElement("p");
 		scoutfactoryBuy.onclick = buyScoutfactory;
-		scoutfactoryBuy.innerHTML = "Create scout factory (Cost: 50 nanites)";
+		scoutfactoryBuy.innerHTML = "Create scout factory (Cost: 100 nanites)";
 		scoutfactorySell.onclick = sellScoutfactory;
 		scoutfactorySell.innerHTML = "Destroy scout factory";
 		
