@@ -1,6 +1,7 @@
 let matter = {
 	available:10000,
-	usable:0
+	usable:0,
+	reachable:1000000
 };
 let nanites = 0;
 let scouts = 0;
@@ -94,7 +95,13 @@ const makeStuff = () => {
 		matter.usable += matter.available;
 		matter.available = 0;
 	}
-	matter.available += scouts/20;
+	if(matter.reachable > scouts/20) {
+		matter.reachable -= scouts/20;
+		matter.available += scouts/20;
+	} else{
+		matter.available += matter.reachable;
+		matter.reachable = 0;
+	}
 	if(matter.usable >= nanofactories/10) {
 		matter.usable -= nanofactories/10;
 		nanites += nanofactories/100;
