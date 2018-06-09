@@ -1,10 +1,11 @@
 let unlock = {
 	scouts:true,
-	nanofactory:true
+	nanofactory:true,
+	reachable:true
 }	
 	
 const unlocks = () => {
-	if(nanites > 100 && unlock.scouts === true) {
+	if(nanites >= 100 && unlock.scouts === true) {
 		let scoutDiv = document.createElement("div");
 		let scoutBuy = document.createElement("button");
 		let scoutSell = document.createElement("button");
@@ -22,7 +23,7 @@ const unlocks = () => {
 		document.getElementById('nanomachines').appendChild(scoutDiv);
 		unlock.scouts = false;
 	}
-	if(nanites > 150 && unlock.nanofactory === true) {
+	if(nanites >= 150 && unlock.nanofactory === true) {
 		let nanofactoryDiv = document.createElement("div");
 		let nanofactoryBuy = document.createElement("button");
 		let nanofactorySell = document.createElement("button");
@@ -40,5 +41,11 @@ const unlocks = () => {
 		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
 		unlock.nanofactory = false;
 	}
-	
+	if(matter.reachable <= 500000 && unlock.reachable === true) {
+		let reachableAmount = document.createElement("p");
+		reachableAmount.innerHTML = "Reachable matter:<br/>" + Math.ceil(matter.reachable);
+		reachableAmount.id = "reachable matter";
+		document.getElementById("recources").appendChild(reachableAmount);
+		
+	}
 };
