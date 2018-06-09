@@ -69,7 +69,7 @@ const buyScoutfactory = () => {
 	updateNanomachines();
 };
 const sellScoutfactory = () => {
-	if(nanofactories > 0) {
+	if(scoutfactories > 0) {
 		nanites += 100;
 		scoutfactories--;
 	}
