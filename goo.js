@@ -106,9 +106,9 @@ const updateNanomachines = () => {
 	}
 	if(unlock.scoutfactory === false) {
 		if(Math.floor(nanofactories) === 1) {
-			document.getElementById('nanofactories').innerHTML = Math.floor(scoutfactories) + " scout factory";
+			document.getElementById('scoutfactories').innerHTML = Math.floor(scoutfactories) + " scout factory";
 		} else{
-			document.getElementById('nanofactories').innerHTML = Math.floor(scoutfactories) + " scout factories";
+			document.getElementById('scoutfactories').innerHTML = Math.floor(scoutfactories) + " scout factories";
 		}
 	}
 };
