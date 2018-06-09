@@ -71,14 +71,14 @@ const updateNanomachines = () => {
 		document.getElementById('nanites').innerHTML = nanites + " nanites";
 	}
 	
-	if(scoutsUnlock === false) {
+	if(unlock.scouts === false) {
 		if(scouts === 1) {
 			document.getElementById('scouts').innerHTML = scouts + " scout";
 		} else{
 			document.getElementById('scouts').innerHTML = scouts + " scouts";
 		}
 	}
-	if(nanofactoryUnlock === false) {
+	if(unlock.nanofactory === false) {
 		if(nanofactories === 1) {
 			document.getElementById('nanofactories').innerHTML = nanofactories + " nanofactory";
 		} else{
