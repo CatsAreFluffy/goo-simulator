@@ -65,6 +65,6 @@ const unlocks = () => {
 		reachableAmount.innerHTML = "Reachable matter:<br/>" + Math.ceil(matter.reachable);
 		reachableAmount.id = "reachable matter";
 		document.getElementById("resources").appendChild(reachableAmount);
-		
+		unlock.reachable = false;
 	}
 };
