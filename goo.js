@@ -1,3 +1,5 @@
+import { unlock, unlocks } from "unlocks.js";
+
 let matter = {
 	available:10000,
 	usable:0
@@ -115,4 +117,3 @@ const ticker = () => {
 	unlocks();
 };
 
-import { unlock, unlocks } from "unlocks.js";
