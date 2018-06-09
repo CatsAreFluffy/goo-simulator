@@ -61,8 +61,8 @@ const sellNanofactory = () => {
 };
 
 const updateMatter = () => {
-	document.getElementById('usable matter').innerHTML = "Usable matter:<br/>" + matter.usable;
-	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + matter.available;
+	document.getElementById('usable matter').innerHTML = "Usable matter:<br/>" + Math.floor(matter.usable);
+	document.getElementById('available matter').innerHTML = "Available matter:<br/>" + Math.ceil(matter.available);
 };
 const updateNanomachines = () => {
 	if(Math.floor(nanites) === 1) {
