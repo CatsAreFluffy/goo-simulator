@@ -1,7 +1,8 @@
 let unlock = {
 	scouts:true,
 	nanofactory:true,
-	reachable:true
+	reachable:true,
+	scoutfactory:true,
 }	
 	
 const unlocks = () => {
@@ -40,6 +41,24 @@ const unlocks = () => {
 		nanofactoryDiv.appendChild(nanofactoryAmount);
 		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
 		unlock.nanofactory = false;
+	}
+	if(scouts >= 50 && unlock.scoutfactory === true) {
+		let scoutfactoryDiv = document.createElement("div");
+		let scoutfactoryBuy = document.createElement("button");
+		let scoutfactorySell = document.createElement("button");
+		let scoutfactoryAmount = document.createElement("p");
+		scoutfactoryBuy.onclick = buyScoutfactory;
+		scoutfactoryBuy.innerHTML = "Create scout factory (Cost: 50 nanites)";
+		scoutfactorySell.onclick = sellScoutfactory;
+		scoutfactorySell.innerHTML = "Destroy scout factory";
+		
+		scoutfactoryAmount.innerHTML = "0 scoutfactories";
+		scoutfactoryAmount.id = "scoutfactories";
+		scoutfactoryDiv.appendChild(scoutfactoryBuy);
+		scoutfactoryDiv.appendChild(scoutfactorySell);
+		scoutfactoryDiv.appendChild(scoutfactoryAmount);
+		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
+		unlock.scoutfactory = false;
 	}
 	if(matter.reachable <= 500000 && unlock.reachable === true) {
 		let reachableAmount = document.createElement("p");
