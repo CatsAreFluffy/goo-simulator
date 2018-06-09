@@ -1,4 +1,4 @@
-import { unlock, unlocks } from "unlocks.js";
+import { unlock, unlocks } from "unlocks";
 
 let matter = {
 	available:10000,
