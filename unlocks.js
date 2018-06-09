@@ -42,5 +42,3 @@ const unlocks = () => {
 	}
 	
 };
-
-export { unlock, unlocks };
