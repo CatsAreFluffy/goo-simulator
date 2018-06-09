@@ -6,6 +6,7 @@ let matter = {
 let nanites = 0;
 let scouts = 0;
 let nanofactories = 0;
+let scoutfactories = 0;
 const getMatter = () => {
 	if(matter.available > 0) {
 		matter.available--;
@@ -60,6 +61,20 @@ const sellNanofactory = () => {
 	}
 	updateNanomachines();
 };
+const buyScoutfactory = () => {
+	if(nanites >= 100) {
+		nanites-=100;
+		nanofactories++;
+	}
+	updateNanomachines();
+};
+const sellNanofactory = () => {
+	if(nanofactories > 0) {
+		nanites += 100;
+		nanofactories--;
+	}
+	updateNanomachines();
+};
 
 const updateMatter = () => {
 	document.getElementById('usable matter').innerHTML = "Usable matter:<br/>" + Math.floor(matter.usable);
@@ -89,6 +104,13 @@ const updateNanomachines = () => {
 			document.getElementById('nanofactories').innerHTML = Math.floor(nanofactories) + " nanofactories";
 		}
 	}
+	if(unlock.scoutfactory === false) {
+		if(Math.floor(nanofactories) === 1) {
+			document.getElementById('nanofactories').innerHTML = Math.floor(scoutfactories) + " scout factory";
+		} else{
+			document.getElementById('nanofactories').innerHTML = Math.floor(scoutfactories) + " scout factories";
+		}
+	}
 };
 const makeStuff = () => {
 	if(matter.available > nanites/100) {
@@ -111,7 +133,13 @@ const makeStuff = () => {
 	} else{
 		nanites += matter.usable/10;
 		matter.usable = 0;
-		console.log(matter.usable % (nanofactories/10));
+	}
+	if(nanites >= scoutfactories/5) {
+		nanites -= scoutfactories/5;
+		scouts += scoutfactories/100;
+	} else{
+		scouts += nanites/20;
+		nanites = 0;
 	}
 	updateNanomachines();
 };
