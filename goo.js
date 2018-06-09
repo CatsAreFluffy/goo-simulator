@@ -1,7 +1,7 @@
 let matter = {
 	available:10000,
 	usable:0,
-	reachable:1000000
+	reachable:990000
 };
 let nanites = 0;
 let scouts = 0;
