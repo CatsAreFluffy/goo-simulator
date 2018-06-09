@@ -20,7 +20,7 @@ const unlocks = () => {
 		scoutDiv.appendChild(scoutSell);
 		scoutDiv.appendChild(amount);
 		document.getElementById('nanomachines').appendChild(scoutDiv);
-		scoutsUnlock = false;
+		unlock.scouts = false;
 	}
 	if(nanites > 150 && unlock.nanofactory === true) {
 		let nanofactoryDiv = document.createElement("div");
@@ -38,7 +38,7 @@ const unlocks = () => {
 		nanofactoryDiv.appendChild(nanofactorySell);
 		nanofactoryDiv.appendChild(nanofactoryAmount);
 		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
-		nanofactoryUnlock = false;
+		unlock.nanofactory = false;
 	}
 	
 };
