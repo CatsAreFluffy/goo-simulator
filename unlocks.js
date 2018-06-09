@@ -45,7 +45,7 @@ const unlocks = () => {
 		let reachableAmount = document.createElement("p");
 		reachableAmount.innerHTML = "Reachable matter:<br/>" + Math.ceil(matter.reachable);
 		reachableAmount.id = "reachable matter";
-		document.getElementById("recources").appendChild(reachableAmount);
+		document.getElementById("resources").appendChild(reachableAmount);
 		
 	}
 };
