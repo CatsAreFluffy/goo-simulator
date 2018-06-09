@@ -25,6 +25,10 @@ const buyNanite = () => {
 };
 const sellNanite = () => {
 	if(nanites > 0) {
+		if(nanites-1 < 0) {
+			matter.usable += nanites*10
+			nanites = 0;
+		}
 		matter.usable += 10;
 		nanites--;
 	}
@@ -41,6 +45,10 @@ const buyScout = () => {
 };
 const sellScout = () => {
 	if(scouts > 0) {
+		if(scouts-1 < 0) {
+			nanites += scouts*20
+			scouts = 0;
+		}
 		nanites += 20;
 		scouts--;
 	}
@@ -56,6 +64,10 @@ const buyNanofactory = () => {
 };
 const sellNanofactory = () => {
 	if(nanofactories > 0) {
+		if(nanofactories-1 < 0) {
+			nanites += nanofactories*50
+			nanofactories = 0;
+		}
 		nanites += 50;
 		nanofactories--;
 	}
@@ -70,6 +82,10 @@ const buyScoutfactory = () => {
 };
 const sellScoutfactory = () => {
 	if(scoutfactories > 0) {
+		if(scoutfactories-1 < 0) {
+			nanites += scoutfactories*100
+			scoutfactories = 0;
+		}
 		nanites += 100;
 		scoutfactories--;
 	}
