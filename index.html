@@ -1,27 +1,27 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<link rel="stylesheet" href="style.css"/>
-</head>
-<body>
-	<script type:"text/javascript" src="goo.js"></script>
-	<script type:"text/javascript" src="unlocks.js"></script>
-	<div id="resources">
-		<p id="usable matter"></p>
-		<p id="available matter"></p>
-	</div>
-	<button onclick="getMatter()">Convert matter</button>
-	<div id="nanomachines">
-		<div>
-			<button onclick="buyNanite()">Create nanite (Cost:10 usable matter)</button>
-			<button onclick="sellNanite()">Destroy nanite</button>
-			<p id="nanites">0 nanites<p>
+	<head>
+		<link rel="stylesheet" href="style.css"/>
+	</head>
+	<body>
+		<script type:"text/javascript" src="goo.js"></script>
+		<script type:"text/javascript" src="unlocks.js"></script>
+		<div id="resources">
+			<p id="usable matter"></p>
+			<p id="available matter"></p>
 		</div>
-		
-	</div>
-	<script>
-		updateMatter();
-		let looper = setInterval(ticker, 10);
-	</script>
-</body>
+		<button onclick="getMatter()">Convert matter</button>
+		<div id="nanomachines">
+			<div>
+				<button onclick="buyNanite()">Create nanite (Cost:10 usable matter)</button>
+				<button onclick="sellNanite()">Destroy nanite</button>
+				<p id="nanites">0 nanites<p>
+			</div>
+
+		</div>
+		<script>
+			updateMatter();
+			let looper = setInterval(ticker, 10);
+		</script>
+	</body>
 </html>
