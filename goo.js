@@ -347,7 +347,7 @@ const load = () => {
 	}
 };
 
-const delete = () => {
+const remove = () => {
 	
 	if (!window.localStorage.getItem("savefile")) {
 		
