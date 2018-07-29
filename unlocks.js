@@ -78,8 +78,8 @@ const unlocks = () => {
 		minicolonySell.onclick = sellMinicolony;
 		minicolonySell.innerHTML = "Destroy mini-colony";
 		
-		minicolonyAmount.innerHTML = "0 colonies";
-		minicolonyAmount.id = "colonies";
+		minicolonyAmount.innerHTML = "0 minicolonies";
+		minicolonyAmount.id = "minicolonies";
 		minicolonyDiv.appendChild(minicolonyBuy);
 		minicolonyDiv.appendChild(minicolonySell);
 		minicolonyDiv.appendChild(minicolonyAmount);
