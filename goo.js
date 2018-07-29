@@ -320,7 +320,6 @@ const save = () => {
 	
 };
 
-// And we need a new function for load
 const load = () => {
 
 	// Check to see if the save file exists
@@ -346,18 +345,17 @@ const load = () => {
 		minicolonies = player.minicolonies;
 		
 	}
-},
+};
 
 const delete = () => {
 	
 	if (!window.localStorage.getItem("savefile")) {
 		
 	} else {
-		// Remove the savefile
 		window.localStorage.removeItem("savefile");
 	}
 
-},
+};
 const ticker = () => {
 	makeStuff();
 	updateMatter();
