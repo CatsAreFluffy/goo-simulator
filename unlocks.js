@@ -8,7 +8,7 @@ let unlock = {
 }	
 	
 const unlocks = () => {
-	if(nanites >= 50 && unlock.scouts === true) {
+	if((nanites >= 50 || scouts > 0) && unlock.scouts === true) {
 		let scoutDiv = document.createElement("div");
 		let scoutBuy = document.createElement("button");
 		let scoutSell = document.createElement("button");
@@ -26,7 +26,7 @@ const unlocks = () => {
 		document.getElementById('nanomachines').appendChild(scoutDiv);
 		unlock.scouts = false;
 	}
-	if(nanites >= 100 && unlock.nanofactory === true) {
+	if((nanites >= 100 || nanofactories > 0) && unlock.nanofactory === true) {
 		let nanofactoryDiv = document.createElement("div");
 		let nanofactoryBuy = document.createElement("button");
 		let nanofactorySell = document.createElement("button");
@@ -44,7 +44,7 @@ const unlocks = () => {
 		document.getElementById('nanomachines').appendChild(nanofactoryDiv);
 		unlock.nanofactory = false;
 	}
-	if(scouts >= 20 && unlock.scoutfactory === true) {
+	if((scouts >= 20 || scoutfactories > 0) && unlock.scoutfactory === true) {
 		let scoutfactoryDiv = document.createElement("div");
 		let scoutfactoryBuy = document.createElement("button");
 		let scoutfactorySell = document.createElement("button");
@@ -69,7 +69,7 @@ const unlocks = () => {
 		document.getElementById("resources").appendChild(reachableAmount);
 		unlock.reachable = false;
 	}
-	if(matter.reachable <= 0 && unlock.minicolony === true) {
+	if((matter.reachable <= 0 || minicolonies > 0) && unlock.minicolony === true) {
 		let minicolonyDiv = document.createElement("div");
 		let minicolonyBuy = document.createElement("button");
 		let minicolonySell = document.createElement("button");
@@ -87,7 +87,7 @@ const unlocks = () => {
 		document.getElementById('nanomachines').appendChild(minicolonyDiv);
 		unlock.minicolony = false;
 	}
-	if(minicolonies >= 25 && unlock.colony === true) {
+	if((minicolonies >= 25 || colonies > 0) && unlock.colony === true) {
 		let colonyDiv = document.createElement("div");
 		let colonyBuy = document.createElement("button");
 		let colonySell = document.createElement("button");
