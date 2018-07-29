@@ -83,7 +83,7 @@ const unlocks = () => {
 		colonyDiv.appendChild(colonyBuy);
 		colonyDiv.appendChild(colonySell);
 		colonyDiv.appendChild(colonyAmount);
-		document.getElementById('nanomachines').appendChild(scoutfactoryDiv);
+		document.getElementById('nanomachines').appendChild(colonyDiv);
 		unlock.colony = false;
 	}
 };
