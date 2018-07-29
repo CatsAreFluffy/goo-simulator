@@ -3,6 +3,7 @@ let matter = {
 	usable:0,
 	reachable:990000,
 };
+let player = {};
 let nanites = 0;
 let scouts = 0;
 let nanofactories = 0;
@@ -309,10 +310,71 @@ const makeStuff = () => {
 };
 
 
+const save = () => {
+	
+	let savefile = JSON.stringify(player);
+	
+	console.log(savefile);
+	
+	window.localStorage.setItem("savefile", savefile);
+	
+};
 
+// And we need a new function for load
+load = () => {
+
+	// Check to see if the save file exists
+	// Remember the exclamation mark means "NOT"
+	// So this says "If the savefile does NOT exist".
+	if (!window.localStorage.getItem("savefile")) {
+		
+
+	} else {
+		
+		let tmpSavefile = window.localStorage.getItem("savefile");
+		
+		player = JSON.parse(tmpSavefile);
+		
+		
+		matter.available = player.available;
+		matter.usable = player.usable;
+		matter.reachable = player.reachable;
+		nanites = player.nanites;
+		scouts = player.scouts;
+		nanofactories = player.nanofactories;
+		scoutfactories = player.scoutfactories;
+		minicolonies = player.minicolonies;
+		
+	}
+},
+
+// And one more new function for delete
+delete = () => {
+
+	// Check to see if the save file exists
+	// Remember the exclamation mark means "NOT"
+	if (!window.localStorage.getItem("savefile")) {
+			
+	} else {
+		// Remove the savefile
+		window.localStorage.removeItem("savefile");
+	}
+
+},
 const ticker = () => {
 	makeStuff();
 	updateMatter();
 	unlocks();
+	
+	player.available = matter.available;
+	player.usable = matter.usable;
+	player.reachable = matter.reachable;
+	player.nanites = nanites;
+	player.scouts = scouts;
+	player.nanofactories = nanofactories;
+	player.scoutfactories = scoutfactories;
+	player.minicolonies = minicolonies;
+	player.colonies = colonies;
+	
 };
 
