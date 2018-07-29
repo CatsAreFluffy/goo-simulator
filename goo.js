@@ -192,6 +192,7 @@ const makeStuff = () => {
 		nanofactories += nanites/50;
 		nanites = 0;
 	}
+	matter.reachable += colonies/20
 	updateNanomachines();
 };
 
