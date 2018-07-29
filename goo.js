@@ -7,6 +7,7 @@ let nanites = 0;
 let scouts = 0;
 let nanofactories = 0;
 let scoutfactories = 0;
+let minicolonies = 0;
 let colonies = 0;
 
 let persec = {
@@ -17,6 +18,7 @@ let persec = {
 	scouts:0,
 	nanofactories:0,
 	scoutfactories:0,
+	minicolonies:0,
 };
 
 const getMatter = () => {
@@ -104,6 +106,25 @@ const sellScoutfactory = () => {
 	updateNanomachines();
 };
 
+const buyMinicolony = () => {
+	if(nanites >= 50) {
+		nanites-=50;
+		minicolonies++;
+	}
+	updateNanomachines();
+};
+const sellMinicolony = () => {
+	if(minicolonies > 0) {
+		if(minicolonies-1 < 0) {
+			nanites += minicolonies*50
+			minicolonies = 0;
+		}
+		nanites += 50;
+		minicolonies--;
+	}
+	updateNanomachines();
+};
+
 const buyColony = () => {
 	if(nanofactories >= 50) {
 		nanofactories-=50;
@@ -169,6 +190,15 @@ const updateNanomachines = () => {
 	if(unlock.reachable === false) {
 		persecond += persec.reachable + " reachable/s<br>";
 	}
+	if(unlock.minicolony === false) {
+		if(Math.floor(colonies) === 1) {
+			document.getElementById('minicolonies').innerHTML = Math.floor(colonies) + " mini-colony";
+		} else{
+			document.getElementById('minicolonies').innerHTML = Math.floor(colonies) + " mini-colonies";
+		}
+		
+		
+	}
 	if(unlock.colony === false) {
 		if(Math.floor(colonies) === 1) {
 			document.getElementById('colonies').innerHTML = Math.floor(colonies) + " colony";
@@ -179,6 +209,7 @@ const updateNanomachines = () => {
 		
 		persecond += persec.nanofactories + " nanofactories/s<br>";
 		persecond += persec.scoutfactories + " scoutfactories/s<br>";
+		persecond += persec.minicolonies + " scoutfactories/s<br>";
 	}
 	
 	document.getElementById('persec').innerHTML = persecond;
@@ -191,6 +222,7 @@ const makeStuff = () => {
 	persec.scouts = 0;
 	persec.nanofactories = 0;
 	persec.scoutfactories = 0;
+	persec.minicolonies = 0;
 	if(matter.available > nanites/100) {
 		matter.available -= nanites/100;
 		matter.usable += nanites/100;
@@ -258,7 +290,19 @@ const makeStuff = () => {
 		scoutfactories += nanites/100;
 		nanites = 0;
 	}
-	matter.reachable += colonies/2
+	
+	if(nanites >= colonies/2) {
+		nanites -= colonies/2;
+		minicolonies += colonies/100;
+		persec.minicolonies += colonies;
+		persec.nanites -= colonies * 50;
+	} else{
+		persec.minicolonies += nanites/50;
+		persec.nanites -= nanites;
+		minicolonies += nanites/50;
+		nanites = 0;
+	}
+	matter.reachable += minicolonies/2
 	persec.reachable += 50;
 	
 	updateNanomachines();
