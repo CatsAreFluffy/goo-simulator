@@ -150,9 +150,9 @@ const makeStuff = () => {
 		nanites += matter.usable/10;
 		matter.usable = 0;
 	}
-	if(nanites >= scoutfactories/5) {
-		nanites -= scoutfactories/5;
-		scouts += scoutfactories/100;
+	if(nanites >= scoutfactories/50) {
+		nanites -= scoutfactories/50;
+		scouts += scoutfactories/1000;
 	} else{
 		scouts += nanites/20;
 		nanites = 0;
