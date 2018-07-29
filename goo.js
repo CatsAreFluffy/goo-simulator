@@ -303,7 +303,7 @@ const makeStuff = () => {
 		nanites = 0;
 	}
 	matter.reachable += minicolonies/2
-	persec.reachable += 50;
+	persec.reachable += minicolonies*50;
 	
 	updateNanomachines();
 };
