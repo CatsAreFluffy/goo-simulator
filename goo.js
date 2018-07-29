@@ -231,7 +231,7 @@ const makeStuff = () => {
 		persec.nanites -= scoutfactories * 20;
 		
 	} else{
-		persec.scouts += nanites/10;
+		persec.scouts += nanites/20;
 		persec.nanites -= nanites;
 		scouts += nanites/20;
 		nanites = 0;
