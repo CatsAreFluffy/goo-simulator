@@ -321,7 +321,7 @@ const save = () => {
 };
 
 // And we need a new function for load
-load = () => {
+const load = () => {
 
 	// Check to see if the save file exists
 	// Remember the exclamation mark means "NOT"
@@ -348,13 +348,10 @@ load = () => {
 	}
 },
 
-// And one more new function for delete
-delete = () => {
-
-	// Check to see if the save file exists
-	// Remember the exclamation mark means "NOT"
+const delete = () => {
+	
 	if (!window.localStorage.getItem("savefile")) {
-			
+		
 	} else {
 		// Remove the savefile
 		window.localStorage.removeItem("savefile");
