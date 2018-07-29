@@ -95,8 +95,8 @@ const sellScoutfactory = () => {
 };
 
 const buyColony = () => {
-	if(nanofactories >= 100) {
-		nanofactories-=100;
+	if(nanofactories >= 50) {
+		nanofactories-=50;
 		colonies++;
 	}
 	updateNanomachines();
@@ -104,10 +104,10 @@ const buyColony = () => {
 const sellColony = () => {
 	if(colonies > 0) {
 		if(colonies-1 < 0) {
-			nanofactories += colonies*100
+			nanofactories += colonies*50
 			colonies = 0;
 		}
-		nanofactories += 100;
+		nanofactories += 50;
 		colonies--;
 	}
 	updateNanomachines();
