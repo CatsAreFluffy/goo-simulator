@@ -192,6 +192,13 @@ const makeStuff = () => {
 		nanofactories += nanites/50;
 		nanites = 0;
 	}
+	if(nanites >= colonies/25) {
+		nanites -= colonies/25;
+		scoutfactories += colonies/2500;
+	} else{
+		scoutfactories += nanites/100;
+		nanites = 0;
+	}
 	matter.reachable += colonies/2
 	updateNanomachines();
 };
