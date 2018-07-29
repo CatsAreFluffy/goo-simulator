@@ -3,7 +3,7 @@ let unlock = {
 	nanofactory:true,
 	reachable:true,
 	scoutfactory:true,
-	colony:true,
+	minicolony:true,
 }	
 	
 const unlocks = () => {
@@ -68,7 +68,25 @@ const unlocks = () => {
 		document.getElementById("resources").appendChild(reachableAmount);
 		unlock.reachable = false;
 	}
-	if(matter.reachable <= 0 && unlock.colony === true) {
+	if(matter.reachable <= 0 && unlock.minicolony === true) {
+		let minicolonyDiv = document.createElement("div");
+		let minicolonyBuy = document.createElement("button");
+		let minicolonySell = document.createElement("button");
+		let minicolonyAmount = document.createElement("p");
+		minicolonyBuy.onclick = buyMinicolony;
+		minicolonyBuy.innerHTML = "Create colony (Cost: 50 nanites)";
+		minicolonySell.onclick = sellMinicolony;
+		minicolonySell.innerHTML = "Destroy colony";
+		
+		minicolonyAmount.innerHTML = "0 colonies";
+		minicolonyAmount.id = "colonies";
+		minicolonyDiv.appendChild(colonyBuy);
+		minicolonyDiv.appendChild(colonySell);
+		minicolonyDiv.appendChild(colonyAmount);
+		document.getElementById('nanomachines').appendChild(minicolonyDiv);
+		unlock.colony = false;
+	}
+	if(minicolonies >= 25 && unlock.colony === true) {
 		let colonyDiv = document.createElement("div");
 		let colonyBuy = document.createElement("button");
 		let colonySell = document.createElement("button");
