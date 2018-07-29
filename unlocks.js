@@ -4,6 +4,7 @@ let unlock = {
 	reachable:true,
 	scoutfactory:true,
 	minicolony:true,
+	colony:true,
 }	
 	
 const unlocks = () => {
