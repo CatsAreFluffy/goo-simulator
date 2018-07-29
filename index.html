@@ -15,10 +15,11 @@
 			<div>
 				<button onclick="buyNanite()">Create nanite (Cost:10 usable matter)</button>
 				<button onclick="sellNanite()">Destroy nanite</button>
-				<p id="nanites">0 nanites<p>
+				<p id="nanites">0 nanites</p>
 			</div>
 
 		</div>
+		<p id="persec"></p>
 		<script>
 			updateMatter();
 			let looper = setInterval(ticker, 10);
