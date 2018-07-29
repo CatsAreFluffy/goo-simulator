@@ -80,9 +80,9 @@ const unlocks = () => {
 		
 		minicolonyAmount.innerHTML = "0 colonies";
 		minicolonyAmount.id = "colonies";
-		minicolonyDiv.appendChild(colonyBuy);
-		minicolonyDiv.appendChild(colonySell);
-		minicolonyDiv.appendChild(colonyAmount);
+		minicolonyDiv.appendChild(minicolonyBuy);
+		minicolonyDiv.appendChild(minicolonySell);
+		minicolonyDiv.appendChild(minicolonyAmount);
 		document.getElementById('nanomachines').appendChild(minicolonyDiv);
 		unlock.colony = false;
 	}
