@@ -191,10 +191,10 @@ const updateNanomachines = () => {
 		persecond += persec.reachable + " reachable/s<br>";
 	}
 	if(unlock.minicolony === false) {
-		if(Math.floor(colonies) === 1) {
-			document.getElementById('minicolonies').innerHTML = Math.floor(colonies) + " mini-colony";
+		if(Math.floor(minicolonies) === 1) {
+			document.getElementById('minicolonies').innerHTML = Math.floor(minicolonies) + " mini-colony";
 		} else{
-			document.getElementById('minicolonies').innerHTML = Math.floor(colonies) + " mini-colonies";
+			document.getElementById('minicolonies').innerHTML = Math.floor(minicolonies) + " mini-colonies";
 		}
 		
 		
