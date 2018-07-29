@@ -73,9 +73,9 @@ const unlocks = () => {
 		let colonyBuy = document.createElement("button");
 		let colonySell = document.createElement("button");
 		let colonyAmount = document.createElement("p");
-		colonyBuy.onclick = buyScoutfactory;
+		colonyBuy.onclick = buyColony;
 		colonyBuy.innerHTML = "Create colony (Cost: 50 nanofactories)";
-		colonySell.onclick = sellScoutfactory;
+		colonySell.onclick = sellColony;
 		colonySell.innerHTML = "Destroy colony";
 		
 		colonyAmount.innerHTML = "0 colonies";
