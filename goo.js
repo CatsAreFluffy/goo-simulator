@@ -148,7 +148,7 @@ const updateNanomachines = () => {
 			document.getElementById('scoutfactories').innerHTML = Math.floor(scoutfactories) + " scout factories";
 		}
 	}
-	f(unlock.colony === false) {
+	if(unlock.colony === false) {
 		if(Math.floor(scoutfactories) === 1) {
 			document.getElementById('colonies').innerHTML = Math.floor(colonies) + " colony";
 		} else{
