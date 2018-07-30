@@ -22,6 +22,8 @@ let persec = {
 	minicolonies:0,
 };
 
+const tickrate = 64;
+
 const getMatter = () => {
 	if(matter.available > 0) {
 		matter.available--;
@@ -224,86 +226,86 @@ const makeStuff = () => {
 	persec.nanofactories = 0;
 	persec.scoutfactories = 0;
 	persec.minicolonies = 0;
-	if(matter.available > nanites/100) {
-		matter.available -= nanites/100;
-		matter.usable += nanites/100;
+	if(matter.available > nanites/tickrate) {
+		matter.available -= nanites/tickrate;
+		matter.usable += nanites/tickrate;
 		persec.usable += nanites;
 		persec.available -= nanites;
 	} else{
-		persec.usable += matter.available;
-		persec.available -= matter.available;
+		persec.usable += matter.available*tickrate;
+		persec.available -= matter.available*tickrate;
 		matter.usable += matter.available;
 		matter.available = 0;
 	}
-	if(matter.reachable > scouts/20) {
-		matter.reachable -= scouts/20;
-		matter.available += scouts/20;
+	if(matter.reachable > scouts*5/tickrate) {
+		matter.reachable -= scouts*5/tickrate;
+		matter.available += scouts*5/tickrate;
 		persec.available += scouts*5;
-		persec.reachable = -scouts;
+		persec.reachable -= scouts*5;
 	} else{
-		persec.available += matter.reachable;
-		persec.reachable -= matter.reachable;
+		persec.available += matter.reachable*tickrate;
+		persec.reachable -= matter.reachable*tickrate;
 		matter.available += matter.reachable;
 		matter.reachable = 0;
 	}
-	if(matter.usable >= nanofactories/10) {
-		matter.usable -= nanofactories/10;
-		nanites += nanofactories/100;
+	if(matter.usable >= nanofactories*10/tickrate) {
+		matter.usable -= nanofactories*10/tickrate;
+		nanites += nanofactories/tickrate;
 		persec.nanites += nanofactories;
 		persec.usable -= nanofactories * 10;
 	} else{
-		persec.nanites += matter.usable/10;
-		persec.usable -= matter.usable;
+		persec.nanites += matter.usable/10*tickrate;
+		persec.usable -= matter.usable*tickrate;
 		nanites += matter.usable/10;
 		matter.usable = 0;
 	}
-	if(nanites >= scoutfactories/5) {
-		nanites -= scoutfactories/5;
-		scouts += scoutfactories/100;
+	if(nanites >= scoutfactories*20/tickrate) {
+		nanites -= scoutfactories*20/tickrate;
+		scouts += scoutfactories/tickrate;
 		persec.scouts += scoutfactories;
 		persec.nanites -= scoutfactories * 20;
 		
 	} else{
-		persec.scouts += nanites/20;
-		persec.nanites -= nanites;
+		persec.scouts += nanites/20*tickrate;
+		persec.nanites -= nanites*tickrate;
 		scouts += nanites/20;
 		nanites = 0;
 	}
-	if(nanites >= colonies/2) {
-		nanites -= colonies/2;
-		nanofactories += colonies/100;
+	if(nanites >= colonies*50/tickrate) {
+		nanites -= colonies*50/tickrate;
+		nanofactories += colonies/tickrate;
 		persec.nanofactories += colonies;
 		persec.nanites -= colonies * 50;
 	} else{
-		persec.nanofactories += nanites/50;
-		persec.nanites -= nanites;
+		persec.nanofactories += nanites/50*tickrate;
+		persec.nanites -= nanites*tickrate;
 		nanofactories += nanites/50;
 		nanites = 0;
 	}
-	if(nanites >= colonies/25) {
-		nanites -= colonies/25;
-		scoutfactories += colonies/2500;
+	if(nanites >= colonies*4/tickrate) {
+		nanites -= colonies*4/tickrate;
+		scoutfactories += colonies/(25*tickrate);
 		persec.scoutfactories += colonies/25;
 		persec.nanites -= colonies * 4;
 	} else{
-		persec.nanofactories += nanites/100;
-		persec.nanites -= nanites;
+		persec.nanofactories += nanites/100*tickrate;
+		persec.nanites -= nanites*tickrate;
 		scoutfactories += nanites/100;
 		nanites = 0;
 	}
 	
-	if(nanites >= colonies/2) {
-		nanites -= colonies/2;
-		minicolonies += colonies/100;
+	if(nanites >= colonies*50/tickrate) {
+		nanites -= colonies*50/tickrate;
+		minicolonies += colonies/tickrate;
 		persec.minicolonies += colonies;
 		persec.nanites -= colonies * 50;
 	} else{
-		persec.minicolonies += nanites/50;
-		persec.nanites -= nanites;
+		persec.minicolonies += nanites/50*tickrate;
+		persec.nanites -= nanites*tickrate;
 		minicolonies += nanites/50;
 		nanites = 0;
 	}
-	matter.reachable += minicolonies/2
+	matter.reachable += minicolonies*50/tickrate
 	persec.reachable += minicolonies*50;
 	
 	updateNanomachines();
