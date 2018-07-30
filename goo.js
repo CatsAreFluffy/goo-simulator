@@ -210,7 +210,7 @@ const updateNanomachines = () => {
 		
 		persecond += persec.nanofactories + " nanofactories/s<br>";
 		persecond += persec.scoutfactories + " scoutfactories/s<br>";
-		persecond += persec.minicolonies + " scoutfactories/s<br>";
+		persecond += persec.minicolonies + " minicolonies/s<br>";
 	}
 	
 	document.getElementById('persec').innerHTML = persecond;
