@@ -306,7 +306,6 @@ const makeStuff = () => {
 	matter.reachable += minicolonies/2
 	persec.reachable += minicolonies*50;
 	
-	updateNanomachines();
 };
 
 
@@ -359,6 +358,7 @@ const remove = () => {
 const ticker = () => {
 	makeStuff();
 	updateMatter();
+	updateNanomachines();
 	unlocks();
 	
 	player.available = matter.available;
