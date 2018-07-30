@@ -22,7 +22,7 @@ let persec = {
 	minicolonies:0,
 };
 
-const tickrate = 64
+let tickrate = 64
 
 const getMatter = () => {
 	if(matter.available > 0) {
